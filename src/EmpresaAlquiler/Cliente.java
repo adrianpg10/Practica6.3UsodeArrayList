@@ -125,10 +125,10 @@ public class Cliente {
         System.out.println("Nif: " + dni);
 
         String nombreElegido = nombre.get(aleatorio.nextInt(nombre.size()));
-        System.out.println("Nombre: " + nombreElegido);
+       
 
         String apellidoElegido = apellido.get(aleatorio.nextInt(apellido.size()));
-        System.out.println("Apellido: " + apellidoElegido);
+        
 
         Cliente cliente = new Cliente(dni, nombreElegido, apellidoElegido);
         return cliente;

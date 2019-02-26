@@ -147,12 +147,7 @@ public class Vehiculo {
         String marcaElegida = marca.get(aleatorio.nextInt(marca.size()));
         
         String modeloElegido = modelo.get(aleatorio.nextInt(modelo.size()));
-        System.out.println("Matricula: " + matricula);
-        System.out.println("Marca: " + marcaElegida);
-        System.out.println("Modelo: " + modeloElegido);
-        System.out.println("Color: " + Color);
-        System.out.println("Tarifa: " + tarifaseleccionada);
-        System.out.println("Disponibilidad: " + disponibilidad);
+ 
         Vehiculo aux = new Vehiculo(matricula, marcaElegida, modeloElegido, Color, tarifaseleccionada, disponibilidad);
         return aux;
         

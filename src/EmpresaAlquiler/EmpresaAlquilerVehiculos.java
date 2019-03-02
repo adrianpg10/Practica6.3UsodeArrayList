@@ -79,39 +79,35 @@ public class EmpresaAlquilerVehiculos {
     }
     
     public void imprimirClientes() {
-        System.out.println("NIF cliente\tNombre\n");
-        for (Cliente c : this.clientes) {
-            
-            System.out.println(c.toString());
-
-            
+       
+        for (int i = 0; i < this.totalClientes; i++) {
+            System.out.println(clientes.get(i));
         }
     }
     
     public void imprimirVehiculos() {
-        System.out.println("Matricula\tModelo\tImporte\tDisponible\n");
-        for (Vehiculo v : this.vehiculos) {
-            System.out.println(v.toString());
-
+       
+        for (int i = 0; i < this.totalVehiculos; i++) {
+            System.out.println(vehiculos.get(i));
         }
     }
     
     private Cliente getCliente(String nif) {
-        for (Cliente c : this.clientes) {
-            if (c.getNif().equals(nif)) {
-                return c;
+         for (int i = 0; i < this.getTotalClientes(); i++) {
+            if (this.clientes.get(i).getNif().equals(nif)) {
+                return this.clientes.get(i);
             }
-            
         }
         return null;
     }
 
     private Vehiculo getVehiculo(String matricula) {
-        for (Vehiculo c : this.vehiculos) {
-            if (c.getMatricula().equals(matricula)) {
-                return c;
+        for (int i = 0; i < this.getTotalVehiculos(); i++) {
+            if (this.vehiculos.get(i).getMatricula().equals(matricula)) {
+                return this.vehiculos.get(i);
             }
         }
+        
         return null;
     }
     
@@ -194,20 +190,24 @@ public class EmpresaAlquilerVehiculos {
         this.totalClientes = totalClientes;
     }
     
-    public void rellenarCLientes() {
+    public ArrayList <Cliente> rellenarCLientes() {
         int clientesSeleccionables = this.totalClientes;
-        for (int i = 0; i < this.clientes.size() - clientesSeleccionables; i++) {
+        for (int i = 0; i < 5; i++) {
             registrarCliente(Cliente.ClienteAleatorio());
+            this.totalClientes++;
         }
+        return this.clientes;
     }
-    
-    public void rellenarVehiculos() {
+
+    public ArrayList<Vehiculo> rellenarVehiculos() {
         int vehiculosSeleccionables = this.totalVehiculos;
-        for (int i = 0; i < this.vehiculos.size() - vehiculosSeleccionables; i++) {
+        for (int i = 0; i < 5; i++) {
             registrarVehiculo(Vehiculo.vehiculoAleatorio());
+            this.totalVehiculos++;
         }
+        return this.vehiculos;
     }
-    
+
     public ArrayList<Cliente> ordenarClientes() {
         Cliente tmp;
         for (int i = 0; i < clientes.size() - 1; i++) {
@@ -219,11 +219,11 @@ public class EmpresaAlquilerVehiculos {
                 }
             }
         }
-        
+
         return clientes;
-        
+
     }
-    
+
     public ArrayList<Vehiculo> ordenarVehiculos() {
         Vehiculo tmp;
         for (int i = 0; i < vehiculos.size() - 1; i++) {

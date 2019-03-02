@@ -41,18 +41,18 @@ public class MisVehiculos {
 
         System.out.println("---------------");
 
-//        easydrive.ordenarVehiculos();
-//        easydrive.ordenarClientes();
-//
-//        easydrive.imprimirVehiculos();
-//        easydrive.imprimirClientes();
+        easydrive.ordenarVehiculos();
+        easydrive.ordenarClientes();
+
+        easydrive.imprimirVehiculos();
+        easydrive.imprimirClientes();
 
         System.out.println("--------------");
 
-//        easydrive.buscarVehiculo("8701WOP");
-//        easydrive.buscarCliente("8903JOU");
-//        
-//        easydrive.imprimirVehiculos();
-//        easydrive.imprimirClientes();
+        easydrive.buscarVehiculo("8701WOP");
+        easydrive.buscarCliente("8903JOU");
+        
+        easydrive.imprimirVehiculos();
+        easydrive.imprimirClientes();
     }
 }

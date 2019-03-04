@@ -192,7 +192,7 @@ public class EmpresaAlquilerVehiculos {
     
     public ArrayList <Cliente> rellenarCLientes() {
         int clientesSeleccionables = this.totalClientes;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 25; i++) {
             registrarCliente(Cliente.ClienteAleatorio());
             this.totalClientes++;
         }
@@ -201,7 +201,7 @@ public class EmpresaAlquilerVehiculos {
 
     public ArrayList<Vehiculo> rellenarVehiculos() {
         int vehiculosSeleccionables = this.totalVehiculos;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 25; i++) {
             registrarVehiculo(Vehiculo.vehiculoAleatorio());
             this.totalVehiculos++;
         }

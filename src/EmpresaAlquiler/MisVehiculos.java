@@ -5,6 +5,8 @@
  */
 package EmpresaAlquiler;
 
+import java.util.Scanner;
+
 /**
  *
  * @author adrip
@@ -12,7 +14,7 @@ package EmpresaAlquiler;
 public class MisVehiculos {
 
     public static void main(String[] args) {
-
+ Scanner teclado = new Scanner(System.in);
 // la instancia easydrive de la clase EmpresaAlquilerVehiculos
         EmpresaAlquilerVehiculos easydrive = new EmpresaAlquilerVehiculos("A-28-187189", "easy drive",
                 "www.easydrive.com");
@@ -40,19 +42,47 @@ public class MisVehiculos {
         easydrive.imprimirClientes();
 
         System.out.println("---------------");
-
+//Ordenamos vehiculos y clientes e imprimimos
         easydrive.ordenarVehiculos();
-        easydrive.ordenarClientes();
+        easydrive.ordenarCliente();
 
         easydrive.imprimirVehiculos();
         easydrive.imprimirClientes();
 
         System.out.println("--------------");
 
+
         easydrive.buscarVehiculo("8701WOP");
         easydrive.buscarCliente("8903JOU");
         
         easydrive.imprimirVehiculos();
         easydrive.imprimirClientes();
+
+        System.out.println("-------------");
+        
+        System.out.println("Indica tu NIF:");
+        String dni = teclado.nextLine();
+        
+        System.out.println("Indica la matricula del vehiculo:");
+        String matricula = teclado.nextLine();
+        
+        System.out.println("Indica los dias de alquiler");
+        int dias = teclado.nextInt();
+        
+        easydrive.alquilarVehiculo(matricula, dni, 0);
+
+        //Busqueda binaria nif y matricula
+        
+        System.out.println("------------");
+        
+        teclado.nextLine();
+        
+        System.out.println("Indica tu NIF:");
+        dni = teclado.nextLine();
+        System.out.println(easydrive.buscarCliente(dni));
+        
+        System.out.println("Indica la matricula del vehiculo:");
+         matricula = teclado.nextLine();
+         System.out.println(easydrive.buscarVehiculo(matricula));
     }
 }

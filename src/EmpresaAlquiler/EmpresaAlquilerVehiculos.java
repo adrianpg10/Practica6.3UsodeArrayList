@@ -78,22 +78,20 @@ public class EmpresaAlquilerVehiculos {
         
     }
     
-    public void imprimirClientes() {
-       
+   public void imprimirClientes() {
         for (int i = 0; i < this.totalClientes; i++) {
             System.out.println(clientes.get(i));
         }
     }
     
-    public void imprimirVehiculos() {
-       
+  public void imprimirVehiculos() {
         for (int i = 0; i < this.totalVehiculos; i++) {
             System.out.println(vehiculos.get(i));
         }
     }
     
-    private Cliente getCliente(String nif) {
-         for (int i = 0; i < this.getTotalClientes(); i++) {
+   private Cliente getCliente(String nif) {
+        for (int i = 0; i < this.getTotalClientes(); i++) {
             if (this.clientes.get(i).getNif().equals(nif)) {
                 return this.clientes.get(i);
             }
@@ -107,7 +105,7 @@ public class EmpresaAlquilerVehiculos {
                 return this.vehiculos.get(i);
             }
         }
-        
+
         return null;
     }
     
@@ -190,8 +188,8 @@ public class EmpresaAlquilerVehiculos {
         this.totalClientes = totalClientes;
     }
     
-    public ArrayList <Cliente> rellenarCLientes() {
-        int clientesSeleccionables = this.totalClientes;
+   public ArrayList<Cliente> rellenarCLientes() {
+        int clientesExistentes = this.totalClientes;
         for (int i = 0; i < 25; i++) {
             registrarCliente(Cliente.ClienteAleatorio());
             this.totalClientes++;
@@ -200,7 +198,7 @@ public class EmpresaAlquilerVehiculos {
     }
 
     public ArrayList<Vehiculo> rellenarVehiculos() {
-        int vehiculosSeleccionables = this.totalVehiculos;
+        int vehiculosExistentes = this.totalVehiculos;
         for (int i = 0; i < 25; i++) {
             registrarVehiculo(Vehiculo.vehiculoAleatorio());
             this.totalVehiculos++;
@@ -208,13 +206,13 @@ public class EmpresaAlquilerVehiculos {
         return this.vehiculos;
     }
 
-    public ArrayList<Cliente> ordenarClientes() {
+   public ArrayList<Cliente> ordenarCliente() {
         Cliente tmp;
         for (int i = 0; i < clientes.size() - 1; i++) {
             for (int j = i + 1; j < clientes.size(); j++) {
                 if (clientes.get(i).getNif().compareTo(clientes.get(j).getNif()) > 0) {
                     tmp = clientes.get(i);
-                    clientes.set(j, clientes.get(j));
+                    clientes.set(i, clientes.get(j));
                     clientes.set(j, tmp);
                 }
             }
@@ -238,7 +236,7 @@ public class EmpresaAlquilerVehiculos {
         return vehiculos;
     }
     
-    public int buscarCliente(String buscado) {
+   public int buscarCliente(String buscado) {
         int mitad;
         int izquierda = 0;
         int derecha = clientes.size() - 1;
@@ -255,13 +253,13 @@ public class EmpresaAlquilerVehiculos {
             else if (clientes.get(mitad).getNif().compareTo(buscado) < 0) {
                 izquierda = mitad + 1; // buscar en el trozo derecho
             }
-            
+
         }
         return -1;
-        
+
     }
     
-    public int buscarVehiculo(String buscado) {
+      public int buscarVehiculo(String buscado) {
         int mitad;
         int izquierda = 0;
         int derecha = vehiculos.size() - 1;
@@ -278,9 +276,9 @@ public class EmpresaAlquilerVehiculos {
             else if (vehiculos.get(mitad).getMatricula().compareTo(buscado) < 0) {
                 izquierda = mitad + 1; // buscar en el trozo derecho
             }
-            
+
         }
         return -1;
-        
+
     }
 }
